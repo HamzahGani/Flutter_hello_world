@@ -14,25 +14,30 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) { // Application Root Widget
     return MaterialApp( // WHAT IS THIS???
       title: 'My Flutter Demo', // Title
-      theme: ThemeData( // This is the theme of your application.
+      theme: ThemeData( // Application theme
         primarySwatch: Colors.green, // ColorScheme
       ),
-      home: const MyHomePage(title: 'Home Page'), // HomePage
+      home: const MyHomePage(title: 'Home Page'), // Body - MyHomePage widget
     );
   }
 }
 
 // Application Home Page
 //  This widget is stateful (has a State object - contains fields that affect how it looks.)
-//    This class is the configuration for the state
-//  Title - provided by parent (MyApp) - and used by the build method of the State
+//    Title - provided by parent (MyApp) - and used by the build method of the State
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key); // WHAT IS THIS???
-  final String title; // Page title (Fields in a Widget subclass are marked "final")
-  @override // WHAT IS THIS???
+  // constructor. Title must be passed when instantiating widget (class)
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
+
+  // Page title provided by parent (MyApp) - and used by the build method of the State
+  //  Fields in a Widget subclass are marked "final"
+  final String title;
+
+  @override
   State<MyHomePage> createState() => _MyHomePageState(); //Page State
 }
 
+// This class is the configuration for the state
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   void _incrementCounter() {
